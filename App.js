@@ -1,20 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import PullToRefresh from './PullToRefresh';
+import { createStackNavigator } from '@react-navigation/stack';
+import SwipeGesture from './SwipeGesture';
+import {NavigationContainer} from '@react-navigation/native';
+import Reanimated from './Reanimated';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="PullToRefresh" component={PullToRefresh} />
+      <Stack.Screen name="SwipeGesture" component={SwipeGesture} /> 
+      <Stack.Screen name="Reanimated" component={Reanimated} />
+      
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  
